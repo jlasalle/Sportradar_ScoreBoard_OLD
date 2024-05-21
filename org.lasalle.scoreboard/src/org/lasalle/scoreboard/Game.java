@@ -16,6 +16,17 @@ public class Game {
 	 * The name of the "Away" team
 	 */
 	private static String _awayTeamName = null;
+	
+	/**
+	 * The score of the "Home" team
+	 */
+	private static int _homeTeamScore = 0;
+	
+	/**
+	 * The score of the "Away" team
+	 */
+	private static int _awayTeamScore = 0;
+	
 
 	/**
 	 * Main constructor
@@ -26,26 +37,41 @@ public class Game {
 	public Game(String homeTeamName, String awayTeamName) {
 		_homeTeamName = homeTeamName;
 		_awayTeamName = awayTeamName;
+		
+		_homeTeamScore = 0;
+		_awayTeamScore = 0;
 	}
 
+	/**
+	 * Get the "Home" team name
+	 * @return the name of the "home" team
+	 */
 	public Object getHomeTeamName() {
-		// TODO Auto-generated method stub
-		return null;
+		return _homeTeamName;
 	}
 
+	/**
+	 * Get the "Away" team name
+	 * @return the name of the "away" team
+	 */
 	public Object getAwayTeamName() {
-		// TODO Auto-generated method stub
-		return null;
+		return _awayTeamName;
 	}
 
-	public Object getHomeTeamScore() {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Get the "Home" team score
+	 * @return the score of the "home" team
+	 */
+	public int getHomeTeamScore() {
+		return _homeTeamScore;
 	}
 
-	public Object getAwayTeamScore() {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * Get the "Away" team score
+	 * @return the score of the "away" team
+	 */
+	public int getAwayTeamScore() {
+		return _awayTeamScore;
 	}
 
 }
