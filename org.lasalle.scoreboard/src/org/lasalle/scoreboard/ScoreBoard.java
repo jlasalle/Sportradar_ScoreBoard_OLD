@@ -16,7 +16,7 @@ public class ScoreBoard {
 	Set<Game> _allGames = new HashSet<>();
 
 	/**
-	 * Method dedicated to starting a new game and adding it in the games manages by
+	 * Start a new game and add it in the games managed by
 	 * the scoreboard
 	 * 
 	 * @param homeTeamName the name of the "home" team
@@ -29,8 +29,14 @@ public class ScoreBoard {
 		return newGame;
 	}
 	
+	/**
+	 * Finish a game and remove it from the list of games managed by
+	 * the scoreboard
+	 * 
+	 * @param game Game to remove for the ScoreBoard
+	 */
 	public void finishGame(Game game) {
-		// TODO Auto-generated method stub
+		_allGames.remove(game);
 	}
 
 	/**
