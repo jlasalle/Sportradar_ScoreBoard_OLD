@@ -30,11 +30,15 @@ public class ScoreBoard_GamesSummaryTests {
 	 * D_TEAM: one test team
 	 */
 	private static final String D_TEAM = "D_TEAM";
-
 	/**
-	 * Default scores associated to new game
+	 * E_TEAM: one test team
 	 */
-	private static final int DEFAULT_SCORE = 0;
+	private static final String E_TEAM = "E_TEAM";
+	/**
+	 * F_TEAM: one test team
+	 */
+	private static final String F_TEAM = "F_TEAM";
+
 
 	/**
 	 * The tested ScoreBoard
@@ -75,6 +79,20 @@ public class ScoreBoard_GamesSummaryTests {
 		cdGame.setHomeTeamScore(1);
 		
 		String result = genSummaryLine(1, cdGame) + genSummaryLine(2, abGame);
+		assertEquals(result, _scoreBoard.getGamesSummary());
+	}
+	
+	/**
+	 * Check that the "games summary" feature return the right String expression.
+	 * 3 games with the same total: the most recent must be displayed first.
+	 */
+	@Test
+	public void gamesSummaryTest_equalityCase() {
+		Game abGame = _scoreBoard.startGame(A_TEAM, B_TEAM);
+		Game cdGame = _scoreBoard.startGame(C_TEAM, D_TEAM);
+		Game efGame = _scoreBoard.startGame(E_TEAM, F_TEAM);
+		
+		String result = genSummaryLine(1, efGame) + genSummaryLine(2, cdGame) + genSummaryLine(3, abGame);
 		assertEquals(result, _scoreBoard.getGamesSummary());
 	}
 
