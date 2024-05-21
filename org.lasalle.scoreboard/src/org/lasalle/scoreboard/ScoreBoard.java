@@ -48,4 +48,9 @@ public class ScoreBoard {
 	public boolean contains(Game game) {
 		return _allGames.contains(game);
 	}
+
+	public void updateScore(Game game, int i, int j) {
+		// TODO Auto-generated method stub
+		
+	}
 }
