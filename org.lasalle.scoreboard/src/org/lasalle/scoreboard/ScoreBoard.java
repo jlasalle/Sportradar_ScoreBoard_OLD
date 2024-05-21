@@ -60,4 +60,9 @@ public class ScoreBoard {
 	public boolean contains(Game game) {
 		return _allGames.contains(game);
 	}
+
+	public Object getGamesSummary() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
