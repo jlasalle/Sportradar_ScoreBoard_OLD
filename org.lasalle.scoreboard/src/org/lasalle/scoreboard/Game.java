@@ -28,4 +28,24 @@ public class Game {
 		_awayTeamName = awayTeamName;
 	}
 
+	public Object getHomeTeamName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAwayTeamName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getHomeTeamScore() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object getAwayTeamScore() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
