@@ -28,6 +28,10 @@ public class ScoreBoard {
 		_allGames.add(newGame);
 		return newGame;
 	}
+	
+	public void finishGame(Game game) {
+		// TODO Auto-generated method stub
+	}
 
 	/**
 	 * Check if the ScoreBoard contains the given Game

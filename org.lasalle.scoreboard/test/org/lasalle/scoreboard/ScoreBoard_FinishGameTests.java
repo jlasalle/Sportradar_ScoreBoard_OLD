@@ -6,16 +6,13 @@ import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Tests dedicated to the "Start Game"
- * Feature : "Start a game. When a game starts, it should capture
- * a. Home team
- * b. Away Team
- * (initial score 0-0)
+ * Tests dedicated to the "Finish Game" feature
+ * Finish a game. It will remove a match from the scoreboard.
  * 
  * @author lasalle
  */
-public class ScoreBoard_StartGameTests {
-	
+public class ScoreBoard_FinishGameTests {
+
 	/**
 	 * Home team name used for the test
 	 */
@@ -42,21 +39,13 @@ public class ScoreBoard_StartGameTests {
 		_scoreBoard = new ScoreBoard();
 	}
 
-	/**
-	 * Check that the "start game" action well add a new game in the ScoreBoard.
-	 * Check also the attributes
-	 */
 	@Test
-	public void startGameTest() {
+	public void test() {
 		Game game = _scoreBoard.startGame(HOME_TEAM_NAME, AWAY_TEAM_NAME);
 		
+		_scoreBoard.finishGame(game);
+		
 		//Check that the game is well inserted
-		assertTrue(_scoreBoard.contains(game));		
-
-		//Check that the game is well configured (good name, score at 0 by default)
-		assertEquals(HOME_TEAM_NAME, game.getHomeTeamName());
-		assertEquals(0, game.getHomeTeamScore());
-		assertEquals(AWAY_TEAM_NAME, game.getAwayTeamName());
-		assertEquals(0, game.getAwayTeamScore());	
+		assertFalse(_scoreBoard.contains(game));
 	}
 }
