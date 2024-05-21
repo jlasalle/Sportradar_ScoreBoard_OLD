@@ -1,6 +1,8 @@
 package org.lasalle.scoreboard;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -29,5 +31,17 @@ public class ScoreBoard_StartGameTests extends ScoreBoardTest {
 		assertEquals(0, game.getHomeTeamScore());
 		assertEquals(B_TEAM, game.getAwayTeamName());
 		assertEquals(0, game.getAwayTeamScore());
+	}
+
+	/**
+	 * Try to execute a "start game" action with a "null" name for one of the teams
+	 * => the game must not me created
+	 */
+	@Test
+	public void startGameTest_nullName() {
+		//Only "home" is null
+		Game game = _scoreBoard.startGame(A_TEAM, null);
+		assertNull(game);
+		assertTrue(_scoreBoard._allGames.isEmpty());
 	}
 }
