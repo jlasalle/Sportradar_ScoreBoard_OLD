@@ -10,22 +10,22 @@ public class Game {
 	/**
 	 * The name of the "Home" team
 	 */
-	private static String _homeTeamName = null;
+	private String _homeTeamName = null;
 
 	/**
 	 * The name of the "Away" team
 	 */
-	private static String _awayTeamName = null;
+	private String _awayTeamName = null;
 	
 	/**
 	 * The score of the "Home" team
 	 */
-	private static int _homeTeamScore = 0;
+	private int _homeTeamScore = 0;
 	
 	/**
 	 * The score of the "Away" team
 	 */
-	private static int _awayTeamScore = 0;
+	private int _awayTeamScore = 0;
 	
 
 	/**
