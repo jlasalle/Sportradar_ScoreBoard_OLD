@@ -27,6 +27,11 @@ public class ScoreBoard {
 	 * @return the created Game
 	 */
 	public Game startGame(String homeTeamName, String awayTeamName) {
+		if(awayTeamName == null)
+		{
+			return null;
+		}
+		
 		Game newGame = new Game(homeTeamName, awayTeamName);
 		_allGames.add(newGame);
 		return newGame;
