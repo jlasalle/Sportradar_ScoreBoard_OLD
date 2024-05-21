@@ -56,10 +56,8 @@ public class ScoreBoard_GamesSummaryTests {
 	 */
 	@Test
 	public void gamesSummaryTest() {
-		_scoreBoard.startGame(A_TEAM, B_TEAM);
-
-		String result = String.format("1. %s %s - %s %s", A_TEAM, DEFAULT_SCORE, B_TEAM, DEFAULT_SCORE);
-		assertEquals(result, _scoreBoard.getGamesSummary());
+		Game game = _scoreBoard.startGame(A_TEAM, B_TEAM);
+		assertEquals(genSummaryLine(1, game), _scoreBoard.getGamesSummary());
 	}
 
 	/**

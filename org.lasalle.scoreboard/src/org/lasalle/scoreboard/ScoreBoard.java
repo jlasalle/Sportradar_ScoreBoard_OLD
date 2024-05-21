@@ -1,7 +1,10 @@
 package org.lasalle.scoreboard;
 
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * Score Board dedicated to Football World cup.
@@ -67,15 +70,39 @@ public class ScoreBoard {
 	 * @return a String value
 	 */
 	public String getGamesSummary() {
-		if (!_allGames.isEmpty()) {
-			Game game = _allGames.iterator().next();
 
-			if (game != null) {
-				String result = String.format("1. %s %s - %s %s", game.getHomeTeamName(), game.getHomeTeamScore(),
-						game.getAwayTeamName(), game.getAwayTeamScore());
-				return result;
+		// Order all the games by total score
+		List<Game> orderedList = _allGames.stream().sorted(new Comparator<Game>() {
+			@Override
+			public int compare(Game g1, Game g2) {
+				return (g2.getHomeTeamScore() + g2.getAwayTeamScore())
+						- (g1.getHomeTeamScore() + g1.getAwayTeamScore());
+			}
+		}).collect(Collectors.toList());
+
+		// Generate the result
+		String result = "";
+		int index = 1;
+		for(Game g : orderedList)
+		{
+			if(g != null)
+			{
+				result += genSingleLine(index, g);
+				index++;
 			}
 		}
-		return null;
+		return result;
+	}
+
+	/**
+	 * Generate the summary line for a given game at the given index
+	 * 
+	 * @param index index of the game in the list
+	 * @param game the concerned game
+	 * @return a String value
+	 */
+	private String genSingleLine(int index, Game game) {
+		return String.format("%s. %s %s - %s %s\n", index, game.getHomeTeamName(), game.getHomeTeamScore(),
+				game.getAwayTeamName(), game.getAwayTeamScore());
 	}
 }
