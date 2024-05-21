@@ -1,5 +1,6 @@
 package org.lasalle.scoreboard;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
@@ -16,7 +17,7 @@ public class ScoreBoard {
 	/**
 	 * Set of all games managed by the score board
 	 */
-	Set<Game> _allGames = new HashSet<>();
+	List<Game> _allGames = new ArrayList<>();
 
 	/**
 	 * Start a new game and add it in the games managed by the scoreboard
@@ -75,8 +76,13 @@ public class ScoreBoard {
 		List<Game> orderedList = _allGames.stream().sorted(new Comparator<Game>() {
 			@Override
 			public int compare(Game g1, Game g2) {
-				return (g2.getHomeTeamScore() + g2.getAwayTeamScore())
+				int comparison = (g2.getHomeTeamScore() + g2.getAwayTeamScore())
 						- (g1.getHomeTeamScore() + g1.getAwayTeamScore());
+				if(comparison == 0)
+				{
+					return _allGames.indexOf(g2)-_allGames.indexOf(g1);
+				}
+				return comparison;
 			}
 		}).collect(Collectors.toList());
 
