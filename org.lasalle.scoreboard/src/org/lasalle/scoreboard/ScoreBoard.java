@@ -16,8 +16,7 @@ public class ScoreBoard {
 	Set<Game> _allGames = new HashSet<>();
 
 	/**
-	 * Start a new game and add it in the games managed by
-	 * the scoreboard
+	 * Start a new game and add it in the games managed by the scoreboard
 	 * 
 	 * @param homeTeamName the name of the "home" team
 	 * @param awayTeamName the name of the "away" team
@@ -28,10 +27,9 @@ public class ScoreBoard {
 		_allGames.add(newGame);
 		return newGame;
 	}
-	
+
 	/**
-	 * Finish a game and remove it from the list of games managed by
-	 * the scoreboard
+	 * Finish a game and remove it from the list of games managed by the scoreboard
 	 * 
 	 * @param game Game to remove for the ScoreBoard
 	 */
@@ -40,6 +38,20 @@ public class ScoreBoard {
 	}
 
 	/**
+	 * Update the scores of the given game
+	 * 
+	 * @param game             concerned game
+	 * @param homeTeamNewScore new score for the home team
+	 * @param awayTeamNewScore new score for the away team
+	 */
+	public void updateScore(Game game, int homeTeamNewScore, int awayTeamNewScore) {
+		if (game != null) {
+			game.setHomeTeamScore(homeTeamNewScore);
+			game.setAwayTeamScore(awayTeamNewScore);
+		}
+	}
+	
+	/**
 	 * Check if the ScoreBoard contains the given Game
 	 * 
 	 * @param game the Game to search in the ScoreBoard
@@ -47,10 +59,5 @@ public class ScoreBoard {
 	 */
 	public boolean contains(Game game) {
 		return _allGames.contains(game);
-	}
-
-	public void updateScore(Game game, int i, int j) {
-		// TODO Auto-generated method stub
-		
 	}
 }

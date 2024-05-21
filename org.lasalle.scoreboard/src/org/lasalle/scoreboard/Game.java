@@ -74,4 +74,22 @@ public class Game {
 		return _awayTeamScore;
 	}
 
+	/**
+	 * Update the "Home" team score
+	 * 
+	 * @param homeTeamNewScore the new score
+	 */
+	public void setHomeTeamScore(int homeTeamNewScore) {
+		_homeTeamScore = homeTeamNewScore;
+	}
+
+	/**
+	 * Update the "Away" team score
+	 * 
+	 * @param awayTeamNewScore the new score
+	 */
+	public void setAwayTeamScore(int awayTeamNewScore) {
+		_awayTeamScore = awayTeamNewScore;
+	}
+
 }
