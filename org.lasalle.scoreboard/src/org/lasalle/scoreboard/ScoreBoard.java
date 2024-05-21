@@ -50,7 +50,7 @@ public class ScoreBoard {
 			game.setAwayTeamScore(awayTeamNewScore);
 		}
 	}
-	
+
 	/**
 	 * Check if the ScoreBoard contains the given Game
 	 * 
@@ -61,8 +61,21 @@ public class ScoreBoard {
 		return _allGames.contains(game);
 	}
 
-	public Object getGamesSummary() {
-		// TODO Auto-generated method stub
+	/**
+	 * Get the summary of all games of the score board
+	 * 
+	 * @return a String value
+	 */
+	public String getGamesSummary() {
+		if (!_allGames.isEmpty()) {
+			Game game = _allGames.iterator().next();
+
+			if (game != null) {
+				String result = String.format("1. %s %s - %s %s", game.getHomeTeamName(), game.getHomeTeamScore(),
+						game.getAwayTeamName(), game.getAwayTeamScore());
+				return result;
+			}
+		}
 		return null;
 	}
 }
